@@ -84,3 +84,5 @@ export { basicTransformationsPlugin, basicTransformations } from './basic.js';
 export { unnestTransform } from './unnest.js';
 
 export { getFrontmatter } from './frontmatter.js';
+
+export { greenTextTransform, greenTextPlugin } from './greentext.js'
