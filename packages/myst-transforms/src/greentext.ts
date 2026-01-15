@@ -1,5 +1,7 @@
 import type { Plugin } from 'unified';
+import { visit } from 'unist-util-visit';
 import { selectAll } from 'unist-util-select';
+import type { Element } from 'rehype-format';
 import type { GenericNode, GenericParent } from 'myst-common';
 
 
@@ -11,12 +13,24 @@ export function greenTextTransform(tree: GenericParent) {
 
     // Change the node type to html
 
-    node.type = 'element';
-    node.data = { class: "green" }
+    let style;
+    let properties;
+    const type = 'div';
+    visit(node, (n: any) => {
+      properties = n.properties;
+      style = n.properties?.style;
+      console.log(n.properties);
+    });
+    node.type = type;
+    node.properties = properties;
+    node.properties.style = style;
+  
 
-    // Apply css style
-    node.value = 'verde? ' + node.value as string;
-
+    node.children = [];
+    const child = { type : 'text',
+      value : 'verde? ' + node.value as string,
+    }
+    node.children[0] = child;
   });
 }
 

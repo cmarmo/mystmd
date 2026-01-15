@@ -205,7 +205,7 @@ export async function transformMdast(
     })
     .use(inlineMathSimplificationPlugin, { replaceSymbol: false })
     .use(mathPlugin, { macros: frontmatter.math })
-    .use(greenTextPlugin);
+    .use(greenTextPlugin)
   // Load custom transform plugins
   session.plugins?.transforms.forEach((t) => {
     if (t.stage !== 'document') return;

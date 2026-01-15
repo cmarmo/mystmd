@@ -10,7 +10,7 @@ export const greenTextRole: RoleSpec = {
     required: true,
   },
   run(data: RoleData): GenericNode[] {
-    return [
+  /*  return [
 
         {
 
@@ -20,11 +20,13 @@ export const greenTextRole: RoleSpec = {
 
         }
 
-    ];
-    /*const html = (data.body as string);
-    const htmltext = '<p style="color:green;">'+ html +'</p>';
-    const green = { type: 'greentext', children: [{ type: 'text', htmltext }] };
-    addCommonRoleOptions(data, green);
-    return [green];*/
+    ];*/
+
+    const style = 'color: "green";'
+    const green = { type: 'greentext',
+      value : data.body as string,
+      properties : { style: style},
+    };
+    return [green];
   },
 };
