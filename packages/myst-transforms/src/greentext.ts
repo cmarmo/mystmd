@@ -1,7 +1,5 @@
 import type { Plugin } from 'unified';
-import { visit } from 'unist-util-visit';
 import { selectAll } from 'unist-util-select';
-import type { Element } from 'rehype-format';
 import type { GenericNode, GenericParent } from 'myst-common';
 
 
@@ -11,20 +9,10 @@ export function greenTextTransform(tree: GenericParent) {
 
   textNodes.forEach(node => {
 
-    // Change the node type to html
+    // Change the node type to div
 
-    let style;
-    let properties;
-    const type = 'div';
-    visit(node, (n: any) => {
-      properties = n.properties;
-      style = n.properties?.style;
-      console.log(n.properties);
-    });
-    node.type = type;
-    node.properties = properties;
-    node.properties.style = style;
-  
+    node['type'] = 'div';
+    node['style'] = { color: 'green'}  
 
     node.children = [];
     const child = { type : 'text',
