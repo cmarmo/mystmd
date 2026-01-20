@@ -11,7 +11,7 @@ export function greenTextTransform(tree: GenericParent) {
 
     // Change the node type to div
 
-    node['type'] = 'div';
+    node['type'] = 'span';
     node['style'] = { color: 'green'}  
 
     node.children = [];
