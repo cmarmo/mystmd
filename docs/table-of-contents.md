@@ -169,9 +169,13 @@ The title of the document in the table of contents is drawn from the
 [`title` field](frontmatter#titles) in the
 [document frontmatter](frontmatter#in-a-myst-markdown-file) or the first heading
 in the document if `title` isn't specified.
-The [`short_title`](frontmatter#all-available-frontmatter-fields) field can be used
-to specify a shorter title for navigation elements of the rendered site.
-For example:
+
+**To override the page title in navigation menus** without changing the page's primary title, you have two options:
+
+- The [`short_title`](frontmatter#all-available-frontmatter-fields) field in page frontmatter.
+- The `title` field in a Table of Contents entry (this will override `short_title` above if both are set).
+
+For example via page frontmatter:
 
 ```yaml
 ---
@@ -179,6 +183,17 @@ title: On the airspeed velocity of an unladen African swallow
 short_title: Airspeed Velocity
 ---
 ```
+
+Or via `myst.yml`:
+
+```yaml
+project:
+  toc:
+  - file: mypage.md
+    title: Acts as short-title
+```
+
+These will not change the title in the page itself, or in the document AST, they will only be used in navigation entries and such.
 
 (hidden-in-toc)=
 
@@ -197,6 +212,25 @@ project:
 ```
 
 In particular: hidden pages do not impact numbering; also they can be referred to by other pages in the project.
+
+## In-page table of contents
+
+The {myst:directive}`toc` directive displays a list of titles and links for all headers that follow on the page.
+For example:
+
+```md
+:::{toc}
+:context: page
+:depth: 2
+:::
+```
+
+:::{toc}
+:context: page
+:depth: 2
+:::
+
+See the {myst:directive}`toc` docs for more information.
 
 ## URL slugs and folder structure
 
