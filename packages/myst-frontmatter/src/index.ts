@@ -5,6 +5,7 @@ export * from './downloads/index.js';
 export * from './exports/index.js';
 export * from './funding/index.js';
 export * from './jupytext/index.js';
+export * from './jupyter/index.js';
 export * from './kernelspec/index.js';
 export * from './licenses/index.js';
 export * from './numbering/index.js';

@@ -44,5 +44,8 @@
   "lint-staged": {
     "*.ts": "eslint --config ./.eslintrc.cjs --ignore-pattern 'worktrees' --fix",
     "*.{js,jsx,ts,tsx,md,html,css,json}": "prettier --write"
+  },
+  "dependencies": {
+    "mystmd": "^1.10.1"
   }
 }

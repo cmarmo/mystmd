@@ -1,0 +1,16 @@
+title: Jupyter
+cases:
+  - title: empty object returns self
+    raw:
+      jupyter: {}
+    normalized:
+      jupyter: {}
+  - title: full object returns self
+    raw:
+      jupyter:
+        source_hidden: false
+        outputs_hidden: false 
+    normalized:
+      jupyter:
+        source_hidden: false
+        outputs_hidden: false 
